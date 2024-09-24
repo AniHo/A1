@@ -7,9 +7,8 @@ const aiScoreText = document.getElementById("aiScoreText") ;
 
 let playerRoll = 1;
 let playerAi = 2;
-let playerScore =0;
-let aiScore =0;
-
+let playerScore =2;
+let aiScore =3;
 // PROCESSES
 
 
@@ -20,6 +19,7 @@ singleButton.addEventListener("click", function() {
   getRandomNumberOneToSixForAi() ;
 showAiRollResult () ;
 evaluateResult();
+scoreResult();
 });
 
 // CONTROLLERS
@@ -28,18 +28,21 @@ evaluateResult();
 function getRandomNumberOneToSixForPlayer() {
   playerRoll = Math.floor(Math.random() * 6) + 1;
 }
-
 function getRandomNumberOneToSixForAi() {
   playerAi = Math.floor(Math.random() * 6) + 1;
 }
 
-function evaluateResult(playerScore,aiScore) {
-  if (playerScore < aiScore) {
+function evaluateResult() {
+  if (playerRoll < playerAi) {
+   playerScoreText.innerText= "WINNER";
     playerScore++;
-  } else if (playerScore > aiScore) {
+  } else if (playerRoll > playerAi) {
     aiScore++;
+    aiScoreText.innerText = "You Win";
   }
-
+else  {
+  result.innerText= "Its a Draw";
+  }
 }
 
 //View
@@ -51,3 +54,7 @@ function showAiRollResult() {
   aiRollText.innerText = "Ai:" + playerAi;
 }
 
+function scoreResult() {
+  result.innerText = "Player score:" + playerScore + "" + " Ai Score:"  + aiScore;
+
+}
