@@ -34,11 +34,11 @@ function getRandomNumberOneToSixForAi() {
 
 function evaluateResult() {
   if (playerRoll < playerAi) {
-   playerScoreText.innerText= "WINNER";
+   result.innerText= " Player Wins";
     playerScore++;
   } else if (playerRoll > playerAi) {
     aiScore++;
-    aiScoreText.innerText = "You Win";
+    result.innerText = "Player Lose";
   }
 else  {
   result.innerText= "Its a Draw";
@@ -55,6 +55,7 @@ function showAiRollResult() {
 }
 
 function scoreResult() {
-  result.innerText = "Player score:" + playerScore + "" + " Ai Score:"  + aiScore;
+playerScoreText.innerText = "Player score" + playerScore;
+aiScoreText.innerText = "Ai score:" + aiScore;
 
 }
